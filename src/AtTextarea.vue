@@ -3,6 +3,9 @@ import At from './At.vue'
 import getCaretCoordinates from 'textarea-caret'
 import { getAtAndIndex } from './util'
 
+const listMaxHeightInPx = 135;
+const panelOffset = 4;
+
 export default {
   extends: At,
   name: 'AtTextarea',
@@ -109,13 +112,25 @@ export default {
         const el = this.$el.querySelector('textarea')
         const atEnd = offset + at.length // 从@后第一位开始
         const rect = getCaretCoordinates(el, atEnd)
+        const textareaRect = el.getBoundingClientRect();
+        const isPanelOutOfTopBounds = listMaxHeightInPx > textareaRect.top + panelOffset;
+        let y;
+
+        if (isPanelOutOfTopBounds) {
+          this.displayBelow = true;
+          y = rect.top + rect.height + panelOffset;
+        } else {
+          this.displayBelow = false;
+          y = rect.top - panelOffset;
+        }
+
         this.atwho = {
           chunk,
           offset,
           list,
           atEnd,
           x: rect.left,
-          y: rect.top - 4,
+          y,
           cur: 0, // todo: 尽可能记录
         }
       }

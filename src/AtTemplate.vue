@@ -13,7 +13,10 @@
       :style="style"
     >
       <div class="atwho-inner">
-        <div class="atwho-view">
+        <div
+          class="atwho-view"
+          :class="{'-below': displayBelow}"
+        >
           <ul class="atwho-ul">
             <li v-for="(item, index) in atwho.list"
               class="atwho-li"

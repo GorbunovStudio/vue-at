@@ -85,7 +85,8 @@ export default {
       bindsValue: this.value != null,
       customsEmbedded: false,
       hasComposition: false,
-      atwho: null
+      atwho: null,
+      displayBelow: false
     }
   },
   computed: {
