@@ -119,7 +119,6 @@ export default {
         if (isPanelOutOfTopBounds) {
           this.isBottomView = true;
           y = rect.top + rect.height + panelOffset;
-          y = rect.top - panelOffset;
         } else {
           this.isBottomView = false;
           y = rect.top - panelOffset;
