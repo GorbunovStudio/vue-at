@@ -15,7 +15,7 @@
       <div class="atwho-inner">
         <div
           class="atwho-view"
-          :class="{'-bottom': isBottomView}"
+          :class="{'-below': displayBelow}"
         >
           <ul class="atwho-ul">
             <li v-for="(item, index) in atwho.list"

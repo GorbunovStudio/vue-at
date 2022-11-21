@@ -86,7 +86,7 @@ export default {
       customsEmbedded: false,
       hasComposition: false,
       atwho: null,
-      isBottomView: false
+      displayBelow: false
     }
   },
   computed: {
