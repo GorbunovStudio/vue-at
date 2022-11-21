@@ -117,8 +117,11 @@ export default {
         let y;
 
         if (isPanelOutOfTopBounds) {
-          y = rect.top + rect.height + listMaxHeightInPx + panelOffset;
+          this.isBottomView = true;
+          y = rect.top + rect.height + panelOffset;
+          y = rect.top - panelOffset;
         } else {
+          this.isBottomView = false;
           y = rect.top - panelOffset;
         }
 
